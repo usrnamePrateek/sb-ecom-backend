@@ -97,7 +97,8 @@ public class WebSecurityConfig {
                 "/configuration/security",
                 "/swagger-ui.html",
                 "/webjars/**",
-                "/actuator/**"));
+                "/actuator/**",
+                "/images/**"));
     }
 
     @Bean
