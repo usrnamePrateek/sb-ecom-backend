@@ -75,7 +75,6 @@ public class WebSecurityConfig {
                         .requestMatchers("/api/auth/**").permitAll()
                                 .requestMatchers("/v3/api-docs/**").permitAll()
                                 .requestMatchers("/h2-console/**").permitAll()
-//                                .requestMatchers("/api/admin/**").permitAll()
                                 .requestMatchers("/api/public/**").permitAll()
                                 .requestMatchers("/swagger-ui/**").permitAll()
                                 .requestMatchers("/api/test/**").permitAll()
@@ -83,8 +82,7 @@ public class WebSecurityConfig {
                                 .anyRequest().authenticated()
                 );
 
-        http.csrf(csrf->csrf.disable());
-        http.cors(cors->cors.disable());
+        http.csrf(AbstractHttpConfigurer::disable);
         http.authenticationProvider(authenticationProvider());
         http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
         http.headers(header -> header.frameOptions(HeadersConfigurer.FrameOptionsConfig::sameOrigin));
@@ -98,7 +96,8 @@ public class WebSecurityConfig {
                 "/swagger-resources/**",
                 "/configuration/security",
                 "/swagger-ui.html",
-                "/webjars/**"));
+                "/webjars/**",
+                "/actuator/**"));
     }
 
     @Bean
