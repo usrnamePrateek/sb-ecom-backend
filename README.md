@@ -1,4 +1,5 @@
 # Spring boot Ecommerce application 
+![download (1)](https://github.com/user-attachments/assets/c3221d8e-2eaf-49cb-bfb9-38c9c43e4fae)
 
 ### Powering the web app: [SB-Ecom](https://sb-ecom-frontend.vercel.app)
 
